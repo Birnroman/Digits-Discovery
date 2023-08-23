@@ -6,6 +6,7 @@ class ViewController: UIViewController {
     var score = 0
     var maxScore = 0
     var rate = 1
+    var numberOfRightAnswers = 0
     
     let scoreLabel: UILabel = {
         let label = UILabel()
@@ -46,7 +47,6 @@ class ViewController: UIViewController {
     let rateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 28)
-        label.text = "Следующее число"
         label.textAlignment = .center
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -74,6 +74,8 @@ class ViewController: UIViewController {
         view.backgroundColor = .cyan
         generateRandomNumber()
         setupUI()
+        rateLabel.text = "Ставка: \(rate)"
+
     }
     
     func setupUI() {
@@ -123,14 +125,15 @@ class ViewController: UIViewController {
         }
         
         if newNumber < number {
-            score += 1
+            numberOfRightAnswers += 1
             updateScore()
             updateRateLabel()
 
         } else {
-            score = 0
+            numberOfRightAnswers = 0
 //            updateScore()
             rate = 1
+            score = 0
             updateRateLabel()
             updateScoreLabel()
 
@@ -149,15 +152,16 @@ class ViewController: UIViewController {
             }
             
             if newNumber > number {
-                score += 1
+                numberOfRightAnswers += 1
                 updateScore()
                 updateRateLabel()
 
 
             } else {
-                score = 0
+                numberOfRightAnswers = 0
 //                updateScore()
                 rate = 1
+                score = 0
 
                 updateRateLabel()
                 updateScoreLabel()
@@ -181,11 +185,11 @@ class ViewController: UIViewController {
     
     func updateScore() {
 
-        if score >= 9 {
+        if numberOfRightAnswers >= 9 {
             rate = 8
-        } else if score >= 6 {
+        } else if numberOfRightAnswers >= 6 {
             rate = 5
-        } else if score >= 3 {
+        } else if numberOfRightAnswers >= 3 {
             rate = 3
         } else {
             rate = 1

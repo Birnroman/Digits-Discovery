@@ -12,6 +12,7 @@
 		861AF2102A937B8A00DC6D2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861AF20F2A937B8A00DC6D2D /* ViewController.swift */; };
 		861AF2152A937B8B00DC6D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861AF2142A937B8B00DC6D2D /* Assets.xcassets */; };
 		861AF2182A937B8B00DC6D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861AF2162A937B8B00DC6D2D /* LaunchScreen.storyboard */; };
+		869381FF2A9610EF0054EC33 /* FredokaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 869381FE2A9610EF0054EC33 /* FredokaOne-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		861AF2142A937B8B00DC6D2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		861AF2172A937B8B00DC6D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		861AF2192A937B8B00DC6D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		869381FE2A9610EF0054EC33 /* FredokaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FredokaOne-Regular.ttf"; path = "../../Fredoka One/FredokaOne-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				861AF20D2A937B8A00DC6D2D /* SceneDelegate.swift */,
 				861AF20F2A937B8A00DC6D2D /* ViewController.swift */,
 				861AF2142A937B8B00DC6D2D /* Assets.xcassets */,
+				869381FE2A9610EF0054EC33 /* FredokaOne-Regular.ttf */,
 				861AF2162A937B8B00DC6D2D /* LaunchScreen.storyboard */,
 				861AF2192A937B8B00DC6D2D /* Info.plist */,
 			);
@@ -124,6 +127,7 @@
 			files = (
 				861AF2182A937B8B00DC6D2D /* LaunchScreen.storyboard in Resources */,
 				861AF2152A937B8B00DC6D2D /* Assets.xcassets in Resources */,
+				869381FF2A9610EF0054EC33 /* FredokaOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

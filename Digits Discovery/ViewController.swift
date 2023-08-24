@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     let maxScoreView: UIView = {
         let view = UIView()
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2)
-        view.layer.cornerRadius = 22
+        view.layer.cornerRadius = 20
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -55,6 +55,11 @@ class ViewController: UIViewController {
         return label
     }()
     
+    let numberAndRateView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     let numberLabel: UILabel = {
         let label = UILabel()
@@ -149,7 +154,6 @@ class ViewController: UIViewController {
     func setupUI() {
         gradientLayer.frame = view.bounds
 
-        
         gradientLayer.locations = [0, 0.71]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
@@ -170,9 +174,9 @@ class ViewController: UIViewController {
         maxScoreView.addSubview(iconLithingImageView)
         maxScoreView.addSubview(maxScoreLabel)
 
-        
-        view.addSubview(numberLabel)
-        view.addSubview(rateView)
+        view.addSubview(numberAndRateView)
+        numberAndRateView.addSubview(numberLabel)
+        numberAndRateView.addSubview(rateView)
         
         rateView.addSubview(rateLabel)
         
@@ -183,14 +187,14 @@ class ViewController: UIViewController {
         
         
         NSLayoutConstraint.activate([
-            scoreView.topAnchor.constraint(equalTo: view.topAnchor, constant: 64),
-            scoreView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            scoreView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            scoreView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
             iconMoneyImageView.centerYAnchor.constraint(equalTo: scoreView.centerYAnchor),
             scoreLabel.leadingAnchor.constraint(equalTo: iconMoneyImageView.trailingAnchor, constant: 4),
             scoreLabel.centerYAnchor.constraint(equalTo: iconMoneyImageView.centerYAnchor),
             
             maxScoreView.centerYAnchor.constraint(equalTo: scoreView.centerYAnchor),
-            maxScoreView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            maxScoreView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
             maxScoreView.heightAnchor.constraint(equalToConstant: 40),
             
             iconLithingImageView.centerYAnchor.constraint(equalTo: maxScoreView.centerYAnchor),
@@ -199,12 +203,17 @@ class ViewController: UIViewController {
             maxScoreLabel.leadingAnchor.constraint(equalTo: iconLithingImageView.trailingAnchor, constant: 4),
             maxScoreLabel.trailingAnchor.constraint(equalTo: maxScoreView.trailingAnchor, constant: -16),
             
-            numberLabel.topAnchor.constraint(equalTo: scoreView.bottomAnchor, constant: 40),
-            numberLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            numberAndRateView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            numberAndRateView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            numberAndRateView.heightAnchor.constraint(equalToConstant: 480),
+
+            
+            numberLabel.topAnchor.constraint(equalTo: numberAndRateView.topAnchor),
+            numberLabel.centerXAnchor.constraint(equalTo: numberAndRateView.centerXAnchor),
             numberLabel.heightAnchor.constraint(equalToConstant: 290),
             
-            rateView.topAnchor.constraint(equalTo: numberLabel.bottomAnchor, constant: 24),
-            rateView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            rateView.topAnchor.constraint(equalTo: numberLabel.bottomAnchor, constant: 16),
+            rateView.centerXAnchor.constraint(equalTo: numberAndRateView.centerXAnchor),
             rateView.heightAnchor.constraint(equalToConstant: 88),
             rateView.widthAnchor.constraint(equalToConstant: 88),
             
@@ -214,7 +223,7 @@ class ViewController: UIViewController {
             nextLabel.bottomAnchor.constraint(equalTo: lessButton.topAnchor, constant: -24),
             nextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            lessButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -28),
+            lessButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
             lessButton.leadingAnchor.constraint(equalTo: scoreView.leadingAnchor),
             lessButton.heightAnchor.constraint(equalToConstant: 54),
             
@@ -223,8 +232,6 @@ class ViewController: UIViewController {
             moreButton.heightAnchor.constraint(equalToConstant: 54),
             moreButton.widthAnchor.constraint(equalTo: lessButton.widthAnchor),
             moreButton.leadingAnchor.constraint(equalTo: lessButton.trailingAnchor, constant: 24)
-
-
         ])
     }
     
@@ -243,7 +250,6 @@ class ViewController: UIViewController {
 
         } else {
             numberOfRightAnswers = 0
-//            updateScore()
             rate = 1
             score = 0
             updateRateLabel()
@@ -271,7 +277,6 @@ class ViewController: UIViewController {
 
             } else {
                 numberOfRightAnswers = 0
-//                updateScore()
                 rate = 1
                 score = 0
 
@@ -311,14 +316,12 @@ class ViewController: UIViewController {
         
         updateRateLabel()
 
-        
         if maxScore < score {
             maxScore = score
         }
         
         scoreLabel.text = "\(score)"
         maxScoreLabel.text = "\(maxScore)"
-        
     }
     
     func updateRateLabel() {
@@ -335,8 +338,6 @@ class ViewController: UIViewController {
             UIColor(red: 0.352, green: 0.729, blue: 0.481, alpha: 1).cgColor,
             UIColor(red: 0.443, green: 0.871, blue: 0.537, alpha: 0).cgColor
             ]
-        
-        
         numberLabel.textColor = #colorLiteral(red: 0.4291720092, green: 0.7116048336, blue: 0.4111719728, alpha: 1)
     }
     
@@ -345,8 +346,6 @@ class ViewController: UIViewController {
             UIColor(red: 0.9, green: 0.554, blue: 0.36, alpha: 1).cgColor,
             UIColor(red: 0.908, green: 0.659, blue: 0.519, alpha: 0).cgColor
             ]
-        
-        
         numberLabel.textColor = #colorLiteral(red: 0.9098039216, green: 0.4156862745, blue: 0.3058823529, alpha: 1)
     }
 }

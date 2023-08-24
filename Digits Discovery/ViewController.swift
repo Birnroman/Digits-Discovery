@@ -76,7 +76,7 @@ class ViewController: UIViewController {
     let nextLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 22)
-        label.text = "Следующее число"
+        label.text = "Следующее число:"
         label.textAlignment = .center
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -85,9 +85,9 @@ class ViewController: UIViewController {
     
     let rateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 28)
+        label.font = UIFont.boldSystemFont(ofSize: 38)
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = #colorLiteral(red: 0.5607843137, green: 0.4588235294, blue: 0.1960784314, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -95,7 +95,7 @@ class ViewController: UIViewController {
     lazy var lessButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Меньше", for: .normal)
-        button.backgroundColor = .black
+        button.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.1529411765, blue: 0.1882352941, alpha: 1)
 
         
         var buttonConfiguration = UIButton.Configuration.plain()
@@ -106,7 +106,7 @@ class ViewController: UIViewController {
         buttonConfiguration.imagePadding = 10.0
         button.configuration = buttonConfiguration
         
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 10
         button.tintColor = .white
         
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -117,7 +117,7 @@ class ViewController: UIViewController {
     lazy var moreButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Больше", for: .normal)
-        button.backgroundColor = .black
+        button.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.1529411765, blue: 0.1882352941, alpha: 1)
 
         
         var buttonConfiguration = UIButton.Configuration.plain()
@@ -128,9 +128,8 @@ class ViewController: UIViewController {
         buttonConfiguration.imagePadding = 10.0
         button.configuration = buttonConfiguration
         
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 10
         button.tintColor = .white
-
         
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
@@ -184,7 +183,7 @@ class ViewController: UIViewController {
         
         
         NSLayoutConstraint.activate([
-            scoreView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            scoreView.topAnchor.constraint(equalTo: view.topAnchor, constant: 64),
             scoreView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             iconMoneyImageView.centerYAnchor.constraint(equalTo: scoreView.centerYAnchor),
             scoreLabel.leadingAnchor.constraint(equalTo: iconMoneyImageView.trailingAnchor, constant: 4),
@@ -202,8 +201,9 @@ class ViewController: UIViewController {
             
             numberLabel.topAnchor.constraint(equalTo: scoreView.bottomAnchor, constant: 40),
             numberLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            numberLabel.heightAnchor.constraint(equalToConstant: 290),
             
-            rateView.topAnchor.constraint(equalTo: numberLabel.bottomAnchor, constant: 8),
+            rateView.topAnchor.constraint(equalTo: numberLabel.bottomAnchor, constant: 24),
             rateView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             rateView.heightAnchor.constraint(equalToConstant: 88),
             rateView.widthAnchor.constraint(equalToConstant: 88),
